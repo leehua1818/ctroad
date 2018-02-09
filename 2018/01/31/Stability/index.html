@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="stability,control," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Papers on neural networks(Edited by Prof. Zhang)">
+<meta name="keywords" content="stability,control">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Papers for reading">
+<meta property="og:url" content="http://yoursite.com/2018/01/31/Stability/index.html">
+<meta property="og:site_name" content="CT Group Note">
+<meta property="og:description" content="Papers on neural networks(Edited by Prof. Zhang)">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-09T13:52:29.727Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Papers for reading">
+<meta name="twitter:description" content="Papers on neural networks(Edited by Prof. Zhang)">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/31/Stability/"/>
+
+
+
+
+
+  <title>Papers for reading | CT Group Note</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CT Group Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Note a point everyday!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/31/Stability/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Floybired">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CT Group Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Papers for reading</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-31T21:00:00+08:00">
+                2018-01-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Papers-on-neural-networks"><a href="#Papers-on-neural-networks" class="headerlink" title="Papers on neural networks"></a>Papers on neural networks</h1><p>(Edited by Prof. Zhang)<br><a id="more"></a></p>
+<h2 id="神经网络系统：状态估计"><a href="#神经网络系统：状态估计" class="headerlink" title="神经网络系统：状态估计"></a>神经网络系统：状态估计</h2><p><strong><a href="http://or67l7fj4.bkt.clouddn.com/State_estimation_NNs.zip" target="_blank" rel="noopener">[打包下载]</a></strong></p>
+<ol>
+<li>[<strong>2015-discrete and distributed</strong>] Ren, Jiaojiao, Hong Zhu, Shouming Zhong, Yucai Ding, and Kaibo Shi. “State estimation for neural networks with multiple time delays.” Neurocomputing 151 (2015): 501-510.</li>
+<li>[<strong>2016-discrete and distributed</strong>] Wang, Xin, Kun She, Shouming Zhong, and Huilan Yang. “Further results on state estimation of neural networks with multiple time delays.” Nonlinear Dynamics 85, no. 2 (2016): 717-729.</li>
+<li>[<strong>2016-switched</strong>] Ali, M. Syed, S. Saravanan, and Sabri Arik. “Finite-time H∞ state estimation for switched neural networks with time-varying delays.” Neurocomputing 207 (2016): 580-589.</li>
+<li>[<strong>2017-distributed</strong>] Ali, M. Syed, S. Saravanan, and Quanxin Zhu. “Non-fragile finite-time H∞ state estimation of neural networks with distributed time-varying delay.” Journal of the Franklin Institute 354, no. 16 (2017): 7566-7584.</li>
+<li>[<strong>2017-general</strong>] Gong, Weiqiang, Jinling Liang, Xiu Kan, and Xiaobing Nie. “Robust state estimation for delayed complex-valued neural networks.” Neural Processing Letters 46, no. 3 (2017): 1009-1029.</li>
+<li>[<strong>2018-discrete and distributed-CaoJingde</strong>] Manivannan, R., R. Samidurai, Jinde Cao, Ahmed Alsaedi, and Fuad E. Alsaadi. “Design of extended dissipativity state estimation for generalized neural networks with mixed time-varying delay signals.” Information Sciences 424 (2018): 175-203.</li>
+<li>[<strong>2018-Event-triggered</strong>] Zha, Lijuan, Jian-an Fang, Jinliang Liu, and Engang Tian. “Event-triggered non-fragile state estimation for delayed neural networks with randomly occurring sensor nonlinearity.” Neurocomputing 273 (2018): 1-8.</li>
+<li>[<strong>2018-general-Heyong</strong>] Yu, Hui-Jun, Yong He, and Min Wu. “Delay-dependent state estimation for neural networks with time-varying delay.” Neurocomputing 275 (2018): 881-887.</li>
+</ol>
+<hr>
+<h2 id="神经网络系统：稳定性分析"><a href="#神经网络系统：稳定性分析" class="headerlink" title="神经网络系统：稳定性分析"></a>神经网络系统：稳定性分析</h2><p><strong><a href="http://or67l7fj4.bkt.clouddn.com/Stability_analysis_NNs.zip" target="_blank" rel="noopener">[打包下载]</a></strong></p>
+<ol>
+<li>[<strong>2012-Hinfinity</strong>] Duan, Qihui, Hongye Su, and Zheng-Guang Wu. “H∞ state estimation of static neural networks with time-varying delay.” Neurocomputing 97 (2012): 16-21.</li>
+<li>[<strong>2015-neutral-type-Shi Kaibo</strong>] Shi, Kaibo, Shouming Zhong, Hong Zhu, Xinzhi Liu, and Yong Zeng. “New delay-dependent stability criteria for neutral-type neural networks with mixed random time-varying delays.” Neurocomputing 168 (2015): 896-907.</li>
+<li>[<strong>2016-Heyong</strong>] Lin, Wen-Juan, Yong He, Chuan-Ke Zhang, Min Wu, and Meng-Di Ji. “Stability analysis of recurrent neural networks with interval time-varying delay via free-matrix-based integral inequality.” Neurocomputing 205 (2016): 490-497.</li>
+<li>[<strong>2017-Genernal</strong>] Yang, Bin, Juan Wang, and Xiaodong Liu. “Improved delay-dependent stability criteria for generalized neural networks with time-varying delays.” Information Sciences 420 (2017): 299-312.</li>
+<li>[<strong>2017-HeYong</strong>] Lian, Zhi, Yong He, Chuan-Ke Zhang, and Min Wu. “Further robust stability analysis for uncertain Takagi–Sugeno fuzzy systems with time-varying delay via relaxed integral inequality.” Information Sciences 409 (2017): 139-150.</li>
+<li>[<strong>2018-HeYong</strong>] Lin, Wen-Juan, Yong He, Chuan-Ke Zhang, and Min Wu. “Stability analysis of neural networks with time-varying delay: Enhanced stability criteria and conservatism comparisons.” Communications in Nonlinear Science and Numerical Simulation 54 (2018): 118-135.</li>
+<li>[<strong>2018-neutral-type-Fei Shumin</strong>] Zhang, Guobao, Ting Wang, Tao Li, and Shumin Fei. “Multiple integral Lyapunov approach to mixed-delay-dependent stability of neutral neural networks.” Neurocomputing 275 (2018): 1782-1792.</li>
+</ol>
+<hr>
+<h1 id="Stability-analysis"><a href="#Stability-analysis" class="headerlink" title="Stability analysis"></a>Stability analysis</h1><h2 id="Main-references"><a href="#Main-references" class="headerlink" title="Main references"></a>Main references</h2><ol>
+<li>E. Fridman, A. Seuret, et al., <em>Robust sampled-data stabilization of linear systems: an input delay approach</em>. <strong>Automatica</strong> 40 (2004) 1441-1446. <a href="https://hal.inria.fr/inria-00131031/document" target="_blank" rel="noopener">[PDF]</a></li>
+<li>X.-M. Sun, J. Zhao, et al., <em>Stability and L2-gain analysis for switched delay systems: A delay-dependent method</em>. <strong>Automatica</strong> 42 (2006) 1769-1774. <a href="http://sci-hub.la/10.1016/j.automatica.2006.05.007" target="_blank" rel="noopener">[PDF: SCI-Hub]</a></li>
+<li>R. Wang, Z.-G. Wu, et al., <em>Dynamic output feedback control for a class of switched delay systems under asynchronous switching</em>. <strong>Information Sciences</strong> 225 (2013) 72-80. <a href="http://azadproject.ir/wp-content/uploads/2014/04/2013-Dynamic-output-feedback-control-for-a-class-of-switched-delay-systems-under-asynchronous-switching-.pdf" target="_blank" rel="noopener">[PDF]</a></li>
+<li>Y.-E. Wang, X.-M. Sun, et al., <em>Construction of Lyapunov¨CKrasovskii functionals for switched nonlinear systems with input delay</em>. <strong>Automatica</strong> 50 (2014) 1249-1253. <a href="http://or.nsfc.gov.cn/bitstream/00001903-5/340759/1/1000013344209.pdf" target="_blank" rel="noopener">[PDF]</a></li>
+<li>P. Park, W.I. Lee, et al., <em>Auxiliary function-based integral inequalities for quadratic functions and their applications to time-delay systems</em>. <strong>Journal of the Franklin Institute</strong> 352 (2015) 1378-1396. <a href="http://sci-hub.la/10.1016/j.jfranklin.2015.01.004" target="_blank" rel="noopener">[PDF: SCI-Hub]</a></li>
+<li>A. Seuret, and F. Gouaisbaut, <em>Hierarchy of LMI conditions for the stability analysis of time-delay systems</em>. <strong>Systems &amp; Control Letters</strong> 81 (2015) 1-7. <a href="https://hal.archives-ouvertes.fr/docs/01/06/51/42/PDF/InterpolationV70.pdf" target="_blank" rel="noopener">[PDF]</a></li>
+<li>X. Zhao, S. Yin, et al., <em>Switching Stabilization for a Class of Slowly Switched Systems</em>. <strong>IEEE Transactions on Automatic Control</strong> 60 (2015) 221-226. <a href="http://sci-hub.la/10.1109/TAC.2014.2322961" target="_blank" rel="noopener">[PDF: SCI-Hub]</a></li>
+<li>K. Liu, A. Seuret, et al., <em>Stability analysis of systems with time-varying delays via the second-order Bessel-Legendre inequality</em>. <strong>Automatica</strong> 76 (2017) 138-142. <a href="https://hal.archives-ouvertes.fr/hal-01382473/file/Improved_wirtinger07142016.pdf" target="_blank" rel="noopener">[PDF]</a></li>
+<li>X.-M. Zhang, Q.-L. Han, et al., <em>An improved reciprocally convex inequality and an augmented Lyapunov-Krasovskii functional for stability of linear systems with time-varying delay</em>. <strong>Automatica</strong> (2017). <a href="http://sci-hub.la/10.1016/j.automatica.2017.04.048" target="_blank" rel="noopener">[PDF: SCI-Hub]</a></li>
+<li>X.-M. Zhang, Q.-L. Han, et al., Hierarchical Type Stability Criteria for Delayed Neural Networks via Canonical Bessel-Legendre Inequalities. <strong>IEEE Transactions on Cybernetics</strong>, (2017) 1-12. <a href="https://www.researchgate.net/profile/Xian_Ming_Zhang2/publication/321664157_Hierarchical_Type_Stability_Criteria_for_Delayed_Neural_Networks_via_Canonical_Bessel-Legendre_Inequalities/links/5a311fd945851551a7bc3dad/Hierarchical-Type-Stability-Criteria-for-Delayed-Neural-Networks-via-Canonical-Bessel-Legendre-Inequalities.pdf" target="_blank" rel="noopener">[PDF]</a></li>
+</ol>
+<h2 id="Other-references"><a href="#Other-references" class="headerlink" title="Other references"></a>Other references</h2><ol>
+<li>L. Wu, W.X. Zheng, H. Gao, Dissipativity-Based Sliding Mode Control of Switched Stochastic Systems, <em>IEEE Transactions on Automatic Control</em>, 2013, 58: 785-791.</li>
+<li>A. Aleksandrov, E. Aleksandrova, A. Zhabko, Stability analysis of some classes of nonlinear switched systems with time delay, <em>Int J Syst Sci</em>, 2017, 48: 2111-2119.</li>
+<li>I. Bras, A.C. Carapito, P. Rocha, Stability of simultaneously block triangularisable switched systems with partial state reset, <em>Int J Control</em>, 2017, 90: 428-437.</li>
+<li>C. Briat, Dwell-time stability and stabilization conditions for linear positive impulsive and switched systems, <em>Nonlinear Anal-Hybri</em>, 2017, 24: 198-226.</li>
+<li>G.P. Chen, Y. Yang, Stability of a class of nonlinear fractional order impulsive switched systems, <em>T I Meas Control</em>, 2017, 39: 781-790.</li>
+<li>H.B. Chen, P. Shi, C.C. Lim, Stability of neutral stochastic switched time delay systems: An average dwell time approach, <em>Int J Robust Nonlin</em>, 2017, 27: 512-532.</li>
+<li>X.Y. Ding, X. Liu, Stability analysis for switched positive linear systems under state-dependent switching, Int J Control Autom, 2017, 15: 481-488.</li>
+<li>G. Eisenbarth, J.M. Davis, I. Gravagne, Singular value conditions for stability of dynamic switched systems, J Math Anal Appl, 2017, 452: 814-829.</li>
+<li>R.W. Guo, Y.Z. Wang, Region stability analysis for switched nonlinear systems with multiple equilibria, Int J Control Autom, 2017, 15: 567-574.</li>
+<li>M. Kermani, A. Sakly, On the Stability Analysis of Switched Nonlinear Systems with Time Varying Delay Under Arbitrary Switching, J Syst Sci Complex, 2017, 30: 329-346.</li>
+<li>A. Kundu, D. Chatterjee, On stability of discrete-time switched systems, Nonlinear Anal-Hybri, 2017, 23: 191-210.</li>
+<li>Y. Li, S. Sui, S. Tong, Adaptive Fuzzy Control Design for Stochastic Nonlinear Switched Systems With Arbitrary Switchings and Unmodeled Dynamics, IEEE Trans Cybern, 2017, 47: 403-414.</li>
+<li>Y. Li, H.B. Zhang, Q.X. Zheng, Robust stability and L-1-gain analysis of interval positive switched T-S fuzzy systems with mode-dependent dwell time, Neurocomputing, 2017, 235: 90-97.</li>
+<li>L. Liu, Q. Zhou, H.J. Liang, L.J. Wang, Stability and Stabilization of Nonlinear Switched Systems Under Average Dwell Time, Appl Math Comput, 2017, 298: 77-94.</li>
+<li>T.T. Liu, B.W. Wu, L.L. Liu, Y.E. Wang, Finite-Time Stability of Discrete Switched Singular Positive Systems, Circ Syst Signal Pr, 2017, 36: 2243-2255.</li>
+<li>X.W. Liu, Y.B. Yu, H. Chen, Stability of perturbed switched nonlinear systems with delays, Nonlinear Anal-Hybri, 2017, 25: 114-125.</li>
+<li>Z.Y. Meng, W.G. Xia, K.H. Johansson, S. Hirche, Stability of Positive Switched Linear Systems: Weak Excitation and Robustness to Time-Varying Delay, Ieee Transactions on Automatic Control, 2017, 62: 399-405.</li>
+<li>M.J. Park, O.M. Kwon, S.G. Choi, Stability analysis of discrete-time switched systems with time-varying delays via a new summation inequality, Nonlinear Anal-Hybri, 2017, 23: 76-90.</li>
+<li>M. Philippe, G. Millerioux, R.M. Jungers, Deciding the boundedness and dead-beat stability of constrained switching systems, Nonlinear Anal-Hybri, 2017, 23: 287-299.</li>
+<li>X.C. Pu, X.G. Tan, Stability of hybrid stochastic differential systems with switching and time delay, Stoch Anal Appl, 2017, 35: 569-585.</li>
+<li>J. Shen, W.Q. Wang, Finite-time stability and boundedness for positive switched systems with time-varying delay under state-dependent switching, T I Meas Control, 2017, 39: 43-51.</li>
+<li>W. Tao, Y. Liu, J.Q. Lu, Stability and L-2-gain analysis for switched singular linear systems with jumps, Math Method Appl Sci, 2017, 40: 589-599.</li>
+<li>N.T. Thanh, P. Niamsup, V.N. Phat, Finite-time stability of singular nonlinear switched time-delay systems: A singular value decomposition approach, J Franklin I, 2017, 354: 3502-3518.</li>
+<li>Y.Z. Tian, Y.L. Cai, Y.G. Sun, Stability of switched nonlinear time-delay systems with stable and unstable subsystems, Nonlinear Anal-Hybri, 2017, 24: 58-68.</li>
+<li>B. Wang, Y.P. Tian, Stability analysis for a class of switched systems under perturbations with applications to consensus, Iet Control Theory A, 2017, 11: 1341-1350.</li>
+<li>Y. Wang, N. Roohi, G.E. Dullerud, M. Viswanathan, Stability Analysis of Switched Linear Systems Defined by Regular Languages, Ieee Transactions on Automatic Control, 2017, 62: 2568-2575.</li>
+<li>X. Xie, H.L. Xu, X.M. Cheng, Y.L. Yu, Improved Results on Exponential Stability of Discrete-Time Switched Delay Systems, Discrete Cont Dyn-B, 2017, 22: 199-208.</li>
+<li>H. Yang, W.J. Ren, B. Jiang, On stability of switched nonlinear systems with time-scaling transformation, Int J Syst Sci, 2017, 48: 2120-2127.</li>
+<li>Y.F. Yin, X.D. Zhao, X.L. Zheng, New Stability and Stabilization Conditions of Switched Systems with Mode-Dependent Average Dwell Time, Circ Syst Signal Pr, 2017, 36: 82-98.</li>
+<li>Y.F. Yin, G.D. Zong, X.D. Zhao, Improved stability criteria for switched positive linear systems with average dwell time switching, J Franklin I, 2017, 354: 3472-3484.</li>
+<li>D. Zhai, A.Y. Lu, J.X. Dong, Q.L. Zhang, Stability analysis and state feedback control of continuous-time T-S fuzzy systems via a new switched fuzzy Lyapunov function approach, Appl Math Comput, 2017, 293: 586-599.</li>
+<li>J.F. Zhang, X.D. Zhao, R.D. Zhang, S.S. Zhou, Dual approach to stability and stabilisation of uncertain switched positive systems, Int J Syst Sci, 2017, 48: 873-884.</li>
+<li>X.Q. Zhang, J. Zhao, X.Y. Li, Stability Analysis and Design of Uncertain Discrete-time Switched Systems with Actuator Saturation Using Antiwindup and Multiple Lyapunov Functions Approach, Asian J Control, 2017, 19: 325-331.</li>
+<li>Q.X. Zheng, H.B. Zhang, Exponential Stability and Asynchronous Stabilization of Nonlinear Impulsive Switched Systems via Switching Fuzzy Lyapunov Function Approach, Int J Fuzzy Syst, 2017, 19: 257-271.</li>
+<li>Q.X. Zheng, H.B. Zhang, D.H. Zheng, Stability and Asynchronous Stabilization for a Class of Discrete-time Switched Nonlinear Systems with Stable and Unstable Subsystems, Int J Control Autom, 2017, 15: 986-994.</li>
+<li>Q.X. Zhu, F. Jiang, H. Wang, B. Wang, Comment on “Stability analysis of stochastic differential equations with Markovian switching” [Systems &amp; Control Letters 61 (2012) 1209-1214], Systems &amp; Control Letters, 2017, 102: 102-103.</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/stability/" rel="tag"># stability</a>
+          
+            <a href="/tags/control/" rel="tag"># control</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/07/MariFlow/" rel="next" title="Self-Driving Mario Kart w/Recurrent Neual Network">
+                <i class="fa fa-chevron-left"></i> Self-Driving Mario Kart w/Recurrent Neual Network
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Floybired</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Papers-on-neural-networks"><span class="nav-number">1.</span> <span class="nav-text">Papers on neural networks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络系统：状态估计"><span class="nav-number">1.1.</span> <span class="nav-text">神经网络系统：状态估计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络系统：稳定性分析"><span class="nav-number">1.2.</span> <span class="nav-text">神经网络系统：稳定性分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stability-analysis"><span class="nav-number">2.</span> <span class="nav-text">Stability analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Main-references"><span class="nav-number">2.1.</span> <span class="nav-text">Main references</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-references"><span class="nav-number">2.2.</span> <span class="nav-text">Other references</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Floybired</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
